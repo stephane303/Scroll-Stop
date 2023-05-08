@@ -136,3 +136,15 @@ function siteBlocked(url)
 	}
 	return false;
 }
+
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+	if (request.message === "openChallenge") {
+	  chrome.windows.create({
+		url: "challenge.html",
+		type: "popup",
+		width: 320,
+		height: 200,
+	  });
+	}
+  });
